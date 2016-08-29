@@ -1,12 +1,10 @@
-angular.module('IsolatedApp', [
-
-])
-    // Attribute Isolated Scope
+angular.module('IsolatedApp', [])
     .controller('AttributeCtrl', function(){
         var ctrl = this;
         ctrl.parentName = 'Attribute Controller';
     })
     .directive('attributeBox', function(){
+        // uni-direction from parent to directive
         return {
             template: '<input class="form-control" type="text" ng-model="localName">',
             scope: {
@@ -14,7 +12,6 @@ angular.module('IsolatedApp', [
             }
         }
     })
-    // Binding Isolated Scope
     .controller('BindingCtrl', function(){
         var ctrl = this;
         ctrl.parentItem = {
@@ -23,6 +20,7 @@ angular.module('IsolatedApp', [
         };
     })
     .directive('bindingBox', function(){
+        // bi-direction, parent and directive update in the same time
         return {
             template: '<input class="form-control" type="text" ng-model="localItem.name">'
             +'<input class="form-control" type="text" ng-model="localItem.description">',
@@ -31,7 +29,6 @@ angular.module('IsolatedApp', [
             }
         }
     })
-    // Expression Isolated Scope
     .controller('ExpressionCtrl', function(){
         var ctrl = this;
         ctrl.hello = 'Hello Message';
@@ -39,13 +36,14 @@ angular.module('IsolatedApp', [
 
         ctrl.sayHello = function(message) {
             ctrl.hello = message;
-        }
+        };
 
         ctrl.sayGoodbye = function(message) {
             ctrl.goodbye = message;
-        }
+        };
     })
     .directive('expressionBox', function(){
+        // from parent to children on some update situation
         return {
             template: ' <div class="input-group"><input class="form-control" type="text" ng-model="message" placeholder="Enter a message">'
             + '<span class="input-group-btn">'
@@ -53,6 +51,6 @@ angular.module('IsolatedApp', [
             scope: {
                 localExpression:'&'
             }
-        }
+        };
     })
 ;
