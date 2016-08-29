@@ -7,6 +7,16 @@
     <script src="src.js"></script>
 </head>
 <body ng-controller="ctr">
-    {{test}}
+    <label>Buildin Text Filetr</label>
+    <input ng-model="filterText"/>
+    <br>
+    <label>Custome number Filetr</label>
+    <input ng-model="customeFilter" type="number"/>
+    <ul>
+        <li ng-repeat="oneItem in list | filter: {name: filterText} | customeFilter: customeFilter">
+            Name: {{oneItem.name}}
+            Age: {{oneItem.age}}
+        </li>
+    </ul>
 </body>
 </html>
