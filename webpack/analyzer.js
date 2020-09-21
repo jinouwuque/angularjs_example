@@ -1,18 +1,17 @@
 /* eslint-disable import/no-extraneous-dependencies  */
+const path = require('path');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const common = require('./common');
 
-const { babelLoader, entry, output, resolve } = common;
+const { babelLoader, entry, resolve } = common;
 
 module.exports = {
   mode: 'development',
-  watch: true,
   devtool: 'eval',
   resolve,
   entry,
   output: {
-    publicPath: '/static',
-    path: path.join(__dirname, '../static'),
+    path: path.join(__dirname, '../analyze-output'), // todo: merge this somewhere
     filename: '[name].js',
   },
   module: {

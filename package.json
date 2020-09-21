@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./src",
-    "start": "webpack-dev-server --config webpack/dev.js",
+    "lint": "eslint ./src ./webpack",
+    "dev": "webpack-dev-server --config webpack/dev.js",
     "build": "webpack --config webpack/prod.js",
     "analyze": "webpack --config webpack/analyzer.js",
-    "test": "jest --coverage --silent",
-    "single-test": "jest src/colors/box/Box.spec.js -t \"test box click event\""
+    "test": "jest --coverage --silent"
   },
   "repository": "git+https://github.com/im6/vp2-ui.git",
   "author": "im6",
