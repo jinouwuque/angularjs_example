@@ -1,0 +1,2 @@
+dist/* linguist-generated
+src/newcolor/jscolor.min.js linguist-vendored
