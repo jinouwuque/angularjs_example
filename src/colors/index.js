@@ -56,4 +56,3 @@ window.onscroll = debounce(evt => {
 }, 200);
 
 addColorBox(INITNUM);
-alert(123);

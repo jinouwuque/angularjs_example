@@ -1,5 +1,4 @@
 const base = {
-  staticPath: 'string',
   auth: 'boolean',
   load0: 'number',
 };
@@ -8,7 +7,7 @@ const pageTypes = {
   '/': {
     likes: 'object',
     initData: 'object',
-    removeWelcome: 'function'
+    removeWelcome: 'function',
   },
   '/new': {
     defaultColors: 'string',
@@ -35,10 +34,12 @@ const checkType = (pathname, cpk) => {
     path = '/';
   }
   const map0 = Object.assign(pageTypes[path], base);
-  Object.keys(cpk).forEach((name) => {
-    if (Object.prototype.hasOwnProperty.call(map0, name) &&
+  Object.keys(cpk).forEach(name => {
+    if (
+      Object.prototype.hasOwnProperty.call(map0, name) &&
       // eslint-disable-next-line valid-typeof
-      typeof cpk[name] === map0[name]) {
+      typeof cpk[name] === map0[name]
+    ) {
       delete map0[name];
     } else {
       // eslint-disable-next-line no-console
@@ -50,7 +51,7 @@ const checkType = (pathname, cpk) => {
     // eslint-disable-next-line no-console
     console.error('missing props', missingProps);
   }
-}
+};
 
 setTimeout(() => {
   checkType(window.location.pathname, window._colorpk);

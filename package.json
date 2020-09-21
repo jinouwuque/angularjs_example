@@ -58,7 +58,7 @@
   },
   "jest": {
     "setupFiles": [
-      "./client/jest-mock.js"
+      "./src/jest-mock.js"
     ]
   },
   "prettier": {

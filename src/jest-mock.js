@@ -1,5 +1,4 @@
 global.window._colorpk = {
-  staticPath: '/hot/',
   initData: [
     {
       id: 473,

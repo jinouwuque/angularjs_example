@@ -1,5 +1,5 @@
-const { _colorpk: { staticPath } } = window;
-
+const staticPath = 'https://dkny.oss-cn-hangzhou.aliyuncs.com/4/';
+// todo: clean up
 class Box {
   constructor({
     id,
@@ -57,7 +57,7 @@ class Box {
     btn.setAttribute('type', 'button');
     btn.innerHTML = `<img src="${staticPath}${
       this.isLiked ? 'hrtr.svg' : 'hrt.svg'
-      }">${this.like}`;
+    }">${this.like}`;
     btn.onclick = () => {
       if (btn.innerHTML.indexOf('hrt.svg') > -1) {
         const newNum = this.isLiked ? this.like : this.like + 1;
