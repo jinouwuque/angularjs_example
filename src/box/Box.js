@@ -1,5 +1,5 @@
-const staticPath = 'https://dkny.oss-cn-hangzhou.aliyuncs.com/4/';
-// todo: clean up
+import { staticPath } from '../constant';
+
 class Box {
   constructor({
     id,

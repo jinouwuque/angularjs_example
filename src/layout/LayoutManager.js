@@ -1,4 +1,5 @@
-const MAXNUM = 6;
+import { maxBoxNumInRow } from '../constant';
+
 let instance = null;
 
 class LayoutManager {
@@ -16,7 +17,7 @@ class LayoutManager {
     const util = LayoutManager.widthUtility(wiw);
 
     const wd = Math.floor((wiw * util) / boxWidth) * boxWidth;
-    const maxTotal = boxWidth * MAXNUM;
+    const maxTotal = boxWidth * maxBoxNumInRow;
     const doubleMargin = boxMargin * 2;
 
     this.sizeInfo = {

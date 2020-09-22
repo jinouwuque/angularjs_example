@@ -37,18 +37,18 @@ body {
     }
 
     &:nth-child(1) {
-      background: linear-gradient(to right, #ffdf76, #ffffcd);
-      color: #cd201f;
+      background: white;
+      color: #333;
       animation-delay: 0.2s;
     }
     &:nth-child(2) {
-      background: #fff;
-      color: #333;
+      background: linear-gradient(to right, #ffdf76, #ffffcd);
+      color: #cd201f;
       animation-delay: 0.28s;
     }
     &:nth-child(3) {
-      background: white;
-      color: #333;
+      background: linear-gradient(to right, #000, #676767);
+      color: white;
       animation-delay: 0.35s;
     }
     &:nth-child(4) {
