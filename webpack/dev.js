@@ -9,7 +9,7 @@ const { babelLoader, entry, resolve } = common;
 module.exports = {
   mode: 'development',
   watch: true,
-  devtool: 'cheap-eval-source-map',
+  devtool: 'eval-cheap-source-map',
   resolve,
   entry,
   output: {

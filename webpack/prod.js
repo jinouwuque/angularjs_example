@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies  */
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -48,4 +49,12 @@ module.exports = {
       filename: '[path]',
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+  },
 };
