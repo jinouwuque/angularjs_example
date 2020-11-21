@@ -7,7 +7,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./common');
 
-const { entry, resolve, babelLoader } = common;
+const { entry, resolve, babelLoader, cssLoader } = common;
 
 module.exports = {
   mode: 'production',
@@ -20,6 +20,7 @@ module.exports = {
   module: {
     rules: [
       babelLoader,
+      cssLoader,
       {
         test: /\.scss$/,
         use: [

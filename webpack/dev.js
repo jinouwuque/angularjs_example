@@ -5,7 +5,7 @@ const common = require('./common');
 const port = 3000;
 const proxyPort = 3001;
 
-const { babelLoader, entry, resolve } = common;
+const { babelLoader, cssLoader, entry, resolve } = common;
 module.exports = {
   mode: 'development',
   watch: true,
@@ -19,6 +19,7 @@ module.exports = {
   module: {
     rules: [
       babelLoader,
+      cssLoader,
       {
         test: /\.scss$/,
         use: [

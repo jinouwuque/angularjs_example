@@ -5,8 +5,7 @@ import './style.scss';
 import './jscolor.min';
 import dragula from 'dragula';
 import swal from 'sweetalert';
-// eslint-disable-next-line
-import 'style-loader!css-loader!dragula/dist/dragula.min.css';
+import 'dragula/dist/dragula.min.css';
 import { ajax } from '../shared/util';
 import validate from './helper/validate';
 
@@ -22,7 +21,7 @@ const { auth } = window._colorpk;
 
 let currentBarIndex = 0;
 
-const setCurrent = newValue => {
+const setCurrent = (newValue) => {
   currentBarIndex = newValue;
 };
 
@@ -50,7 +49,7 @@ const publishMsg = () => {
       text: t0,
       icon: 'success',
       buttons: ['Got it', 'Sign in'],
-    }).then(v => {
+    }).then((v) => {
       if (v) {
         window.location = '/signin';
       }
@@ -59,7 +58,7 @@ const publishMsg = () => {
 };
 
 createBtn.onclick = () => {
-  const state = bars.map(v => {
+  const state = bars.map((v) => {
     return v.jscolor.toString();
   });
 
@@ -92,14 +91,13 @@ createBtn.onclick = () => {
   } else if (badReason.dup > 0) {
     swal('Oops', 'Four unique colors seem a better way', 'error');
   }
-
 };
 
 document.getElementById('resetBtn').onclick = () => {
   resetColors();
 };
 
-window._cpOnColorChange = jsc => {
+window._cpOnColorChange = (jsc) => {
   textElem.value = jsc.toString();
 };
 
