@@ -3,7 +3,7 @@ import '../layout';
 import './style.scss';
 import Box from '../box';
 import likeManager from '../shared/likeManager';
-import { ENTRYANIMDELAY } from '../shared/constant';
+import { ENTRYANIMDELAY } from '../constant';
 
 const $listDiv = document.getElementsByClassName('list')[0];
 const tab = {
@@ -12,7 +12,7 @@ const tab = {
 };
 let currentTab = tab.portfolio;
 
-const addColorBox = source => {
+const addColorBox = (source) => {
   const likeMode = source === tab.like;
   $listDiv.innerHTML = '';
   window._colorpk[source].forEach((v, i) => {
@@ -24,24 +24,26 @@ const addColorBox = source => {
       isLiked:
         likeMode ||
         Object.prototype.hasOwnProperty.call(likeManager.likeMap, v.id),
-      onLike: id0 => {
+      onLike: (id0) => {
         likeManager.addLike(id0);
         if (!likeMode) {
-          const one = window._colorpk[tab.portfolio].find(v0 => v0.id === id0);
+          const one = window._colorpk[tab.portfolio].find(
+            (v0) => v0.id === id0
+          );
           window._colorpk[tab.like].push(one);
         }
       },
-      onUnlike: id0 => {
+      onUnlike: (id0) => {
         likeManager.removeLike(id0);
         window._colorpk[tab.like] = window._colorpk[tab.like].filter(
-          v0 => v0.id !== id0
+          (v0) => v0.id !== id0
         );
         if (likeMode) {
           const thisBox = document.querySelector(`[data-k='${id0}']`);
           $listDiv.removeChild(thisBox);
         }
       },
-      onRedir: id0 => {
+      onRedir: (id0) => {
         window.location.href = `/color/${id0}`;
       },
     });
@@ -64,7 +66,7 @@ const addColorBox = source => {
   if (window._colorpk[source].length < 1) {
     $listDiv.innerHTML = `<h3>You have not ${
       likeMode ? 'liked' : 'created'
-      } any color.</h3>`;
+    } any color.</h3>`;
   }
 };
 

@@ -3,7 +3,7 @@ import '../layout';
 import './style.scss';
 import Box from '../box';
 import { debounce } from '../shared/util';
-import { ENTRYANIMDELAY, INITNUM, STEP, SCROLLBOUND } from '../shared/constant';
+import { ENTRYANIMDELAY, INITNUM, STEP, SCROLLBOUND } from '../constant';
 import likeManager from '../shared/likeManager';
 
 const { initData } = window._colorpk;
@@ -12,7 +12,7 @@ const LIMIT = initData.length;
 const $listDiv = document.getElementsByClassName('list')[0];
 let currentIdx = 0;
 
-const addColorBox = step => {
+const addColorBox = (step) => {
   let forwardSteps = step;
   for (let i = 0; i < step; i += 1) {
     const v = initData[i + currentIdx];
@@ -27,13 +27,13 @@ const addColorBox = step => {
       like,
       isLiked: Object.prototype.hasOwnProperty.call(likeManager.likeMap, v.id),
       animDelay: `${i * ENTRYANIMDELAY}ms`,
-      onLike: id1 => {
+      onLike: (id1) => {
         likeManager.addLike(id1);
       },
-      onUnlike: id1 => {
+      onUnlike: (id1) => {
         likeManager.removeLike(id1);
       },
-      onRedir: id1 => {
+      onRedir: (id1) => {
         window.location.href = `/color/${id1}`;
       },
     });
@@ -44,7 +44,7 @@ const addColorBox = step => {
   currentIdx += forwardSteps;
 };
 
-window.onscroll = debounce(evt => {
+window.onscroll = debounce((evt) => {
   const bodyElem = evt.target.scrollingElement || evt.target.activeElement;
   const htmlElem = document.documentElement;
   const position = bodyElem.scrollTop || htmlElem.scrollTop;
