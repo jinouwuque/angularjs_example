@@ -65,7 +65,7 @@ const addColorBox = (source) => {
 
   if (window._colorpk[source].length < 1) {
     $listDiv.innerHTML = `<h3>You have not ${
-      likeMode ? 'liked' : 'created'
+      likeMode ? 'saved' : 'created'
     } any color.</h3>`;
   }
 };
