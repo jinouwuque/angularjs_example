@@ -58,9 +58,7 @@ const publishMsg = () => {
 };
 
 createBtn.onclick = () => {
-  const state = bars.map((v) => {
-    return v.jscolor.toString();
-  });
+  const state = bars.map((v) => v.jscolor.toString());
 
   const [isValide, badReason] = validate(INIT, state);
   if (isValide) {
@@ -118,9 +116,7 @@ for (let i = 0; i < 4; i += 1) {
 }
 
 dragula([canvas], {
-  moves: (el, container, handle) => {
-    return handle.className === HANDLENAME;
-  },
+  moves: (el, container, handle) => handle.className === HANDLENAME,
 });
 
 setTimeout(() => {
