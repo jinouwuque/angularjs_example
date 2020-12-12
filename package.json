@@ -1,6 +1,6 @@
 {
   "name": "vp2-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "front end source for ColorPK",
   "scripts": {
     "lint": "eslint ./src ./webpack",
