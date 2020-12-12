@@ -7,7 +7,7 @@ const mainElem = document.querySelector('.list');
 const isWelcomeHidden = checkWelcome() && false; // todo: always show colorpk v1
 const helpElem = document.querySelector('.help');
 
-const adjustLayout = w => {
+const adjustLayout = (w) => {
   sizeManager.windowWidth = w;
   const {
     containerWidth,
@@ -23,7 +23,7 @@ const adjustLayout = w => {
   }
 };
 
-window.onresize = debounce(e => {
+window.onresize = debounce((e) => {
   adjustLayout(e.target.innerWidth);
 }, 250);
 

@@ -4,16 +4,16 @@ const common = require('./common');
 
 const port = 3000;
 const proxyPort = 3001;
+const publicPath = '/hot/';
 
 const { babelLoader, cssLoader, entry, resolve } = common;
 module.exports = {
   mode: 'development',
-  watch: true,
   devtool: 'eval-cheap-source-map',
   resolve,
   entry,
   output: {
-    publicPath: '/hot/',
+    publicPath,
     filename: '[name].js',
   },
   module: {
@@ -36,6 +36,7 @@ module.exports = {
     }),
   ],
   devServer: {
+    publicPath,
     open: true,
     hot: true,
     port,
