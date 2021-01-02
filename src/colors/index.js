@@ -20,12 +20,12 @@ const addColorBox = (step) => {
       forwardSteps = i;
       break;
     }
-    const { id, like, color } = v;
+    const { k: id, v: color, s: like } = v;
     const oneBox = new Box({
       id,
       color,
       like,
-      isLiked: Object.prototype.hasOwnProperty.call(likeManager.likeMap, v.id),
+      isLiked: Object.prototype.hasOwnProperty.call(likeManager.likeMap, id),
       animDelay: `${i * ENTRYANIMDELAY}ms`,
       onLike: (id1) => {
         likeManager.addLike(id1);

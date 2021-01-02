@@ -16,27 +16,25 @@ const addColorBox = (source) => {
   const likeMode = source === tab.like;
   $listDiv.innerHTML = '';
   window._colorpk[source].forEach((v, i) => {
-    const { id, color, like } = v;
+    const { k: id, v: color, s: like } = v;
     const oneBox = new Box({
       id,
       color,
       like,
       isLiked:
         likeMode ||
-        Object.prototype.hasOwnProperty.call(likeManager.likeMap, v.id),
+        Object.prototype.hasOwnProperty.call(likeManager.likeMap, id),
       onLike: (id0) => {
         likeManager.addLike(id0);
         if (!likeMode) {
-          const one = window._colorpk[tab.portfolio].find(
-            (v0) => v0.id === id0
-          );
+          const one = window._colorpk[tab.portfolio].find((v0) => v0.k === id0);
           window._colorpk[tab.like].push(one);
         }
       },
       onUnlike: (id0) => {
         likeManager.removeLike(id0);
         window._colorpk[tab.like] = window._colorpk[tab.like].filter(
-          (v0) => v0.id !== id0
+          (v0) => v0.k !== id0
         );
         if (likeMode) {
           const thisBox = document.querySelector(`[data-k='${id0}']`);

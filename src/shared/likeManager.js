@@ -15,12 +15,12 @@ class LikeManagement {
       // grab from global _colorpk
       if (Array.isArray(window._colorpk.list1)) {
         // profile page's likes, [Color]
-        window._colorpk.list1.forEach(v => {
-          res[v.id.toString()] = true;
+        window._colorpk.list1.forEach((v) => {
+          res[v.k.toString()] = true;
         });
       } else if (Array.isArray(window._colorpk.likes)) {
         // latest or popular, [Int]
-        window._colorpk.likes.forEach(v => {
+        window._colorpk.likes.forEach((v) => {
           res[v.toString()] = true;
         });
       }
@@ -30,7 +30,7 @@ class LikeManagement {
         window.localStorage.getItem(LSLIKEKEY)
       );
       if (Array.isArray(currentLocalState)) {
-        currentLocalState.forEach(v => {
+        currentLocalState.forEach((v) => {
           res[v.toString()] = true;
         });
       } else {
@@ -45,7 +45,6 @@ class LikeManagement {
   addLike(id) {
     this.likeMap[id.toString()] = true;
     likeAjax(id, 'POST');
-
     if (!this.isAuth && this.hasLocalStorage) {
       const userLike = JSON.parse(window.localStorage.getItem(LSLIKEKEY));
       userLike.push(id);
@@ -58,7 +57,7 @@ class LikeManagement {
     likeAjax(id, 'DELETE');
     if (!this.isAuth && this.hasLocalStorage) {
       let userLike = JSON.parse(window.localStorage.getItem(LSLIKEKEY));
-      userLike = userLike.filter(v => v !== id);
+      userLike = userLike.filter((v) => v !== id);
       window.localStorage.setItem(LSLIKEKEY, JSON.stringify(userLike));
     }
   }

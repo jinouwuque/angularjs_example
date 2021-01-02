@@ -30,13 +30,13 @@ const syncAjax = () => {
 
 window._colorpk = {
   ...window._colorpk,
-  approve: id => {
+  approve: (id) => {
     approve(id, 'POST');
   },
-  disapprove: id => {
+  disapprove: (id) => {
     approve(id, 'DELETE');
   },
   sync: () => {
     syncAjax();
   },
-}
+};
