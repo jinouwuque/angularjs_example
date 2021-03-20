@@ -3,8 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./common');
 
 const port = 3000;
-const proxyPort = 3001;
 const publicPath = '/hot/';
+const backendProxy = 'http://192.168.1.249:3000';
 
 const { babelLoader, cssLoader, entry, resolve } = common;
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
     port,
     proxy: {
       '*': {
-        target: `http://localhost:${proxyPort}`,
+        target: backendProxy,
         secure: false,
       },
     },

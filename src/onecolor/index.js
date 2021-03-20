@@ -6,7 +6,7 @@ import likeManager from '../shared/likeManager';
 
 const downloadBtn = document.getElementById('download');
 const container = document.getElementsByClassName('container')[0];
-const { id, color, like } = window._colorpk.selected;
+const { k: id, v: color, s: like } = window._colorpk.selected;
 downloadBtn.href = downloadCanvas(color);
 
 const oneBox = new Box({
@@ -14,10 +14,10 @@ const oneBox = new Box({
   color,
   like,
   isLiked: Object.prototype.hasOwnProperty.call(likeManager.likeMap, id),
-  onLike: id0 => {
+  onLike: (id0) => {
     likeManager.addLike(id0);
   },
-  onUnlike: id0 => {
+  onUnlike: (id0) => {
     likeManager.removeLike(id0);
   },
 });
